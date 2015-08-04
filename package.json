@@ -10,7 +10,10 @@
     "type": "git",
     "url": "git+https://github.com/wincent/simple-debounce.git"
   },
-  "author": "Greg Hurrell <greg@hurrell.net>",
+  "author": {
+    "name": "Greg Hurrell",
+    "email": "greg@hurrell.net"
+  },
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/wincent/simple-debounce/issues"
