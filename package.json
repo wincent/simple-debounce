@@ -18,5 +18,18 @@
   "bugs": {
     "url": "https://github.com/wincent/simple-debounce/issues"
   },
-  "homepage": "https://github.com/wincent/simple-debounce"
+  "homepage": "https://github.com/wincent/simple-debounce",
+  "devDependencies": {
+    "babel": "^5.8.20",
+    "babel-core": "^5.8.20",
+    "babel-eslint": "^4.0.5",
+    "expect": "^1.8.0",
+    "gulp": "^3.9.0",
+    "gulp-eslint": "^1.0.0",
+    "gulp-flowtype": "^0.4.7",
+    "gulp-spawn-mocha": "^2.2.1",
+    "gulp-util": "^3.0.6",
+    "mocha": "^2.2.5",
+    "sinon": "^1.15.4"
+  }
 }
