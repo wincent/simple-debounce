@@ -47,7 +47,7 @@ gulp.task('js', ['babel', 'lint', 'test', 'typecheck']);
 
 gulp.task('babel', () => (
   gulp.src('src/**/*.js')
-    .pipe(wrap(babel())
+    .pipe(wrap(babel()))
     .pipe(gulp.dest('dist'))
 ));
 
