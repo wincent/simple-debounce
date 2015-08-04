@@ -19,8 +19,8 @@ const debouncedFunction = debounce(expensiveFunction, 1000);
 
 ## Links
 
-- Source: https://github.com/wincent/simple-debounce
-- Package: https://www.npmjs.com/package/simple-debounce
+- Source: [github.com/wincent/simple-debounce](https://github.com/wincent/simple-debounce)
+- Package: [www.npmjs.com/package/simple-debounce](https://www.npmjs.com/package/simple-debounce)
 
 ## License
 
