@@ -4,13 +4,13 @@
 
 ## Install
 
-```
-npm install --save simple-debounce
+```sh
+$ npm install --save simple-debounce
 ```
 
 ## Usage
 
-```
+```js
 import debounce from 'simple-debounce';
 import expensiveFunction from './expensiveFunction';
 
