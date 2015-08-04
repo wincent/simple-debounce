@@ -6,6 +6,7 @@
   "scripts": {
     "build": "gulp build",
     "lint": "gulp lint",
+    "prepublish": "gulp build",
     "test": "mocha --opts mocha/mocha.opts 'src/**/__mocks__/*.js' 'src/**/__tests__/*-test.js'",
     "watch": "gulp"
   },
