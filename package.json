@@ -28,6 +28,7 @@
     "babel-eslint": "^4.0.5",
     "expect": "^1.8.0",
     "gulp": "^3.9.0",
+    "gulp-babel": "^5.2.0",
     "gulp-eslint": "^1.0.0",
     "gulp-flowtype": "^0.4.7",
     "gulp-spawn-mocha": "^2.2.1",
