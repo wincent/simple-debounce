@@ -18,7 +18,15 @@ afterEach(function() {
 });
 
 global.sinon = {
-  stub() {
-    sandbox.stub(...arguments);
+  spy() {
+    return sinon.spy(...arguments);
   },
+
+  stub() {
+    return sandbox.stub(...arguments);
+  },
+
+  useFakeTimers() {
+    return sinon.useFakeTimers(...arguments);
+  }
 };

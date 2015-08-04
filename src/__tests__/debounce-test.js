@@ -5,39 +5,45 @@
 
 'use strict';
 
-jest.dontMock('../debounce');
-
 const debounce = require('../debounce');
 
 describe('debounce()', () => {
-  let mockFunction;
+  let clock;
+  let spy;
 
   beforeEach(() => {
-    mockFunction = jest.genMockFunction();
+    clock = sinon.useFakeTimers();
+    spy = sinon.spy();
+  });
+
+  afterEach(() => {
+    clock.restore();
   });
 
   it('does nothing when the debounced function is not called', () => {
-    debounce(mockFunction, 100);
-    jest.runAllTimers();
-    expect(mockFunction).not.toBeCalled();
+    debounce(spy, 100);
+    clock.tick(1000);
+    expect(spy.called).toBe(false);
   });
 
   it('calls the debounced function after an interval', () => {
-    const debounced = debounce(mockFunction, 100);
+    const debounced = debounce(spy, 100);
     debounced();
-    expect(mockFunction).not.toBeCalled();
-    jest.runAllTimers();
-    expect(mockFunction).toBeCalled();
+    clock.tick(50);
+    expect(spy.called).toBe(false);
+    clock.tick(50);
+    expect(spy.called).toBe(true);
   });
 
   it('uses the last-passed arguments when debouncing multiple calls', () => {
-    const debounced = debounce(mockFunction, 100);
+    const debounced = debounce(spy, 100);
     debounced(1);
     debounced(2);
-    expect(mockFunction).not.toBeCalled();
-    jest.runAllTimers();
-    expect(mockFunction).toBeCalledWith(2);
-    expect(mockFunction.mock.calls.length).toBe(1);
+    clock.tick(50);
+    expect(spy.called).toBe(false);
+    clock.tick(50);
+    expect(spy.args.length).toBe(1);
+    expect(spy.args[0][0]).toBe(2);
   });
 
   it('uses the last-employed context when debouncing multiple calls', () => {
@@ -49,7 +55,7 @@ describe('debounce()', () => {
     const context2 = {};
     debounced.call(context1);
     debounced.call(context2);
-    jest.runAllTimers();
+    clock.tick(1000);
     expect(context).toBe(context2);
   });
 });
