@@ -4,7 +4,10 @@
   "description": "Simple debounce implementation that fires on the trailing edge only",
   "main": "dist/debounce.js",
   "scripts": {
-    "test": "mocha --opts mocha/mocha.opts 'src/**/__mocks__/*.js' 'src/**/__tests__/*-test.js'"
+    "build": "gulp build",
+    "lint": "gulp lint",
+    "test": "mocha --opts mocha/mocha.opts 'src/**/__mocks__/*.js' 'src/**/__tests__/*-test.js'",
+    "watch": "gulp"
   },
   "repository": {
     "type": "git",
