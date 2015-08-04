@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/wincent/simple-debounce.git"
+    "url": "https://github.com/wincent/simple-debounce.git"
   },
   "author": {
     "name": "Greg Hurrell",
