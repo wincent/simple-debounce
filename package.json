@@ -1,0 +1,19 @@
+{
+  "name": "simple-debounce",
+  "version": "0.0.1",
+  "description": "Simple debounce implementation that fires on the trailing edge only",
+  "main": "dist/debounce.js",
+  "scripts": {
+    "test": "mocha --opts mocha/mocha.opts 'src/**/__mocks__/*.js' 'src/**/__tests__/*-test.js'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wincent/simple-debounce.git"
+  },
+  "author": "Greg Hurrell <greg@hurrell.net>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/wincent/simple-debounce/issues"
+  },
+  "homepage": "https://github.com/wincent/simple-debounce#readme"
+}
