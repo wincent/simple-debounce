@@ -16,7 +16,8 @@
   },
   "author": {
     "name": "Greg Hurrell",
-    "email": "greg@hurrell.net"
+    "email": "greg@hurrell.net",
+    "url": "https://github.com/wincent"
   },
   "license": "MIT",
   "bugs": {
