@@ -1,6 +1,6 @@
 # simple-debounce
 
- Simple debounce implementation that fires on the trailing edge only. If a call comes in when a pending call is yet to be finalized, it replaces the pending call.
+Simple debounce implementation that fires on the trailing edge only. If a call comes in when a pending call is yet to be finalized, it replaces the pending call.
 
 ## Install
 
