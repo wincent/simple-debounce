@@ -1,12 +1,11 @@
 // Copyright 2015-present Greg Hurrell. All rights reserved.
 // Licensed under the terms of the MIT license.
 
-import babel from 'gulp-babel';
-import eslint from 'gulp-eslint';
-import flow from 'gulp-flowtype';
-import gulp from 'gulp';
-import gutil from 'gulp-util';
-import mocha from 'gulp-spawn-mocha';
+const eslint = require('gulp-eslint');
+const flow = require('gulp-flowtype');
+const gulp = require('gulp');
+const gutil = require('gulp-util');
+const mocha = require('gulp-spawn-mocha');
 
 let watching = false;
 
@@ -43,13 +42,7 @@ gulp.task('build', ['js']);
 
 gulp.task('flow', ['typecheck']);
 
-gulp.task('js', ['babel', 'lint', 'test', 'typecheck']);
-
-gulp.task('babel', () => (
-  gulp.src('src/**/*.js')
-    .pipe(wrap(babel()))
-    .pipe(gulp.dest('dist'))
-));
+gulp.task('js', ['lint', 'test', 'typecheck']);
 
 gulp.task('lint', () => (
   gulp.src('src/**/*.js')
