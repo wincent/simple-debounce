@@ -5,9 +5,9 @@
 
 'use strict';
 
-import sinon from 'sinon';
+var sinon = require('sinon');
 
-let sandbox;
+var sandbox;
 
 beforeEach(function() {
   sandbox = sinon.sandbox.create();
@@ -18,15 +18,15 @@ afterEach(function() {
 });
 
 global.sinon = {
-  spy() {
-    return sinon.spy(...arguments);
+  spy: function spy() {
+    return sinon.spy.apply(this, arguments);
   },
 
-  stub() {
-    return sandbox.stub(...arguments);
+  stub: function stub() {
+    return sandbox.stub.apply(this, arguments);
   },
 
-  useFakeTimers() {
-    return sinon.useFakeTimers(...arguments);
+  useFakeTimers: function useFakeTimers() {
+    return sinon.useFakeTimers.apply(this, arguments);
   }
 };

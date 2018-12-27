@@ -5,29 +5,29 @@
 
 'use strict';
 
-const debounce = require('../debounce');
+var debounce = require('../debounce');
 
-describe('debounce()', () => {
-  let clock;
-  let spy;
+describe('debounce()', function () {
+  var clock;
+  var spy;
 
-  beforeEach(() => {
+  beforeEach(function () {
     clock = sinon.useFakeTimers();
     spy = sinon.spy();
   });
 
-  afterEach(() => {
+  afterEach(function () {
     clock.restore();
   });
 
-  it('does nothing when the debounced function is not called', () => {
+  it('does nothing when the debounced function is not called', function () {
     debounce(spy, 100);
     clock.tick(1000);
     expect(spy.called).toBe(false);
   });
 
-  it('calls the debounced function after an interval', () => {
-    const debounced = debounce(spy, 100);
+  it('calls the debounced function after an interval', function () {
+    var debounced = debounce(spy, 100);
     debounced();
     clock.tick(50);
     expect(spy.called).toBe(false);
@@ -35,8 +35,8 @@ describe('debounce()', () => {
     expect(spy.called).toBe(true);
   });
 
-  it('uses the last-passed arguments when debouncing multiple calls', () => {
-    const debounced = debounce(spy, 100);
+  it('uses the last-passed arguments when debouncing multiple calls', function () {
+    var debounced = debounce(spy, 100);
     debounced(1);
     debounced(2);
     clock.tick(50);
@@ -46,13 +46,13 @@ describe('debounce()', () => {
     expect(spy.args[0][0]).toBe(2);
   });
 
-  it('uses the last-employed context when debouncing multiple calls', () => {
-    let context;
-    const debounced = debounce(function() {
+  it('uses the last-employed context when debouncing multiple calls', function () {
+    var context;
+    var debounced = debounce(function() {
       context = this;
     }, 100);
-    const context1 = {};
-    const context2 = {};
+    var context1 = {};
+    var context2 = {};
     debounced.call(context1);
     debounced.call(context2);
     clock.tick(1000);

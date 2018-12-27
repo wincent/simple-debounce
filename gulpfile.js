@@ -1,11 +1,13 @@
 // Copyright 2015-present Greg Hurrell. All rights reserved.
 // Licensed under the terms of the MIT license.
 
+const child_process = require('child_process');
 const eslint = require('gulp-eslint');
-const flow = require('gulp-flowtype');
 const gulp = require('gulp');
 const gutil = require('gulp-util');
 const mocha = require('gulp-spawn-mocha');
+
+const {exec} = child_process;
 
 let watching = false;
 
@@ -50,13 +52,12 @@ gulp.task('lint', () => (
     .pipe(eslint.format())
 ));
 
-gulp.task('typecheck', () => {
-  return gulp.src('src/**/*.js', {read: false})
-    .pipe(gutil.noop());
-
-  // TODO: enable this once Flow groks ES2015/ES2016 features.
-  return gulp.src('src/**/*.js')
-    .pipe(wrap(flow()))
+gulp.task('typecheck', callback => {
+  exec('node_modules/.bin/flow', (err, stdout, stderr) => {
+    console.log(stdout);
+    console.log(stderr);
+    callback(err);
+  });
 });
 
 gulp.task('test', () => (
